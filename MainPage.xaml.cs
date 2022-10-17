@@ -6,5 +6,10 @@ public partial class MainPage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+	private void ToolbarItem_Clicked(object sender, EventArgs e)
+	{
+		Navigation.PushAsync(new Views.CurrentPage());
+	}
 }
 
