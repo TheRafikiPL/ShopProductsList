@@ -40,7 +40,13 @@ namespace ShopProductsList.Models
                 return quantity.ToString(); 
             }
         }
-
+        public decimal PriceNb
+        {
+            get
+            {
+                return price;
+            }
+        }
         public Product(string name, string description, decimal price, int quantity)
         {
             this.name = name;
