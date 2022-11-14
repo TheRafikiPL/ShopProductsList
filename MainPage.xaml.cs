@@ -8,7 +8,8 @@ public partial class MainPage : ContentPage
 	public MainPage()
 	{
 		InitializeComponent();
-	}
+        products = FileLoad.LoadCurrentToList(Settings.currentPath);
+    }
 
     public static List<Product> GetTestProducts()
     {
@@ -28,9 +29,8 @@ public partial class MainPage : ContentPage
 
     void LoadCurrentData()
     {
-        products = FileLoad.LoadCurrentToList(Settings.currentPath);
-        products = GetTestProducts();
         FileSave.ListToFile(products, Settings.currentPath);
+        products = FileLoad.LoadCurrentToList(Settings.currentPath);
     }
 
     private async void AddProductButt_Clicked(object sender, EventArgs e)
