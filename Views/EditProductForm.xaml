@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ShopProductsList.Views.CreateProductForm"
-             Title="CreateProductForm">
+             x:Class="ShopProductsList.Views.EditProductForm"
+             Title="EditProductForm">
     <ContentPage.Content>
         <Grid Padding="30,20,30,0">
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -41,11 +42,13 @@
                    Grid.Row="6"/>
             <Entry x:Name="ProductQuantity"
                    Grid.Row="7"
-                   Text="0"
                    Placeholder="0"/>
-            <Button Text="Zatwierdź"
+            <Button Text="Edytuj"
                     Grid.Row="8"
-                    Clicked="AddButton_Clicked"/>
+                    Clicked="EditButton_Clicked"/>
+            <Button Text="Usuń"
+                    Grid.Row="9"
+                    Clicked="DeleteButton_Clicked"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

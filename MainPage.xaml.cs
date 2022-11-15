@@ -25,6 +25,7 @@ public partial class MainPage : ContentPage
         base.OnAppearing();
         LoadCurrentData();
         productsList.ItemsSource = products;
+        CountSum();
     }
 
     void LoadCurrentData()
@@ -41,6 +42,37 @@ public partial class MainPage : ContentPage
     public static void AddProductToList(Product product)
     {
         products.Add(product);
+    }
+
+    public static void DeleteProductFromList(Product product)
+    {
+        products.Remove(product);
+    }
+    public static void EditProductFromList(Product product)
+    {
+        for (int i = 0; i < products.Count; i++)
+        {
+            if (product.Id == products[i].Id)
+            {
+                products[i] = product;
+                break;
+            }
+        }
+    }
+
+    private async void productsList_ItemTapped(object sender, ItemTappedEventArgs e)
+    {
+        await Navigation.PushAsync(new Views.EditProductForm(products[e.ItemIndex]));
+    }
+
+    void CountSum()
+    {
+        decimal sum = 0;
+        foreach(Product p in products)
+        {
+            sum += p.PriceNb * p.QuantityNb;
+        }
+        Sum.Text = sum.ToString()+" zł";
     }
 }
 

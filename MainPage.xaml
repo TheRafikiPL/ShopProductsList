@@ -3,10 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ShopProductsList.MainPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="example" Priority="0" Order="Primary" Clicked="AddProductButt_Clicked"/>
+        <ToolbarItem Text="+" 
+                     Priority="1" 
+                     Order="Primary" 
+                     Clicked="AddProductButt_Clicked"/>
+        <ToolbarItem x:Name="Sum" 
+                     Priority="0" 
+                     Order="Primary"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <ListView x:Name="productsList">
+        <ListView x:Name="productsList"
+                  ItemTapped="productsList_ItemTapped">
             <ListView.Header>
                 <Grid>
                     <Grid.RowDefinitions>
